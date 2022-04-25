@@ -64,8 +64,8 @@ export default function Header() {
   const numGuesses = guesses.length;
   const practice = useSelector((s) => s.game.practice);
   const title = practice
-    ? `Practice Duotrigordle`
-    : `Daily Duotrigordle #${id}`;
+    ? `Practice Beaucoup trop de mots`
+    : `Daily Beaucoup trop de mots #${id}`;
   const gameOver = useSelector((s) => s.game.gameOver);
   const extraGuessesNum =
     NUM_GUESSES - NUM_BOARDS - (numGuesses - boardsCompleted);
@@ -131,16 +131,16 @@ export default function Header() {
         {practice ? (
           <>
             <button ref={backRef} onClick={handleBackClick}>
-              Back
+              Retour
             </button>
             <button ref={newRef} onClick={handleNewClick}>
-              New
+              Nouveau
             </button>
           </>
         ) : (
           <>
             <button ref={practiceRef} onClick={handlePracticeClick}>
-              Practice
+              Exercice
             </button>
             <div></div>
           </>
@@ -167,11 +167,11 @@ export default function Header() {
       </div>
       <div className="row-2">
         <p>
-          Boards Complete: {boardsCompleted}/{NUM_BOARDS}
+          Planches : {boardsCompleted}/{NUM_BOARDS}
         </p>
         <Timer />
         <p className={cn(cannotWin && !gameOver && "cannot-win")}>
-          Guesses Used: {numGuesses}/{NUM_GUESSES} ({extraGuesses})
+          Suppositions : {numGuesses}/{NUM_GUESSES} ({extraGuesses})
         </p>
       </div>
     </div>

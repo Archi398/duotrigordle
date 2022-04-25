@@ -219,14 +219,10 @@ button {
   cursor: pointer;
   user-select: none;
 }
-.key.enter-1 {
-  border-bottom: none;
-}
-.key.enter-2 {
-  border-right: none;
-}
-.key.enter-3 {
+.key.empty {
   border-top: none;
+  border-right: none;
+  border-bottom: none;
   border-left: none;
 }
 
@@ -307,6 +303,10 @@ button {
 }
 .close {
   margin-top: calc(var(--app-width) / 30);
+}
+.reset{
+  margin-top: calc(var(--app-width) / 30);
+  background-color: red;
 }
 
 /* Settings */

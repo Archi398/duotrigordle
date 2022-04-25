@@ -62,8 +62,8 @@ export default function Keyboard(props: KeyboardProps) {
 
   return (
     <div className={cn("keyboard", (props.hidden || hideKeyboard) && "hidden")}>
-      <Key char="Q" />
-      <Key char="W" />
+      <Key char="A" />
+      <Key char="Z" />
       <Key char="E" />
       <Key char="R" />
       <Key char="T" />
@@ -72,7 +72,7 @@ export default function Keyboard(props: KeyboardProps) {
       <Key char="I" />
       <Key char="O" />
       <Key char="P" />
-      <Key char="A" />
+      <Key char="Q" />
       <Key char="S" />
       <Key char="D" />
       <Key char="F" />
@@ -81,17 +81,17 @@ export default function Keyboard(props: KeyboardProps) {
       <Key char="J" />
       <Key char="K" />
       <Key char="L" />
-      <Key char="enter-1" />
+      <Key char="M" />
+      <Key char="" />
       <Key char="backspace" />
-      <Key char="Z" />
+      <Key char="W" />
       <Key char="X" />
       <Key char="C" />
       <Key char="V" />
       <Key char="B" />
       <Key char="N" />
-      <Key char="M" />
-      <Key char="enter-2" />
       <Key char="enter-3" />
+      <Key char="" />
     </div>
   );
 }
@@ -109,7 +109,7 @@ function Key(props: KeyProps) {
       : props.char === "enter-3"
       ? "⏎"
       : props.char;
-  const enterClass = props.char.startsWith("enter-") ? props.char : null;
+  const emptyClass = props.char === "" ? 'empty' : null;
   const handleClick =
     props.char === "backspace"
       ? () => dispatch(inputBackspace())
@@ -129,7 +129,7 @@ function Key(props: KeyProps) {
   );
 
   return (
-    <div className={cn("key", enterClass)} style={styles} onClick={handleClick}>
+    <div className={cn("key", emptyClass)} style={styles} onClick={handleClick}>
       <span>{char}</span>
     </div>
   );

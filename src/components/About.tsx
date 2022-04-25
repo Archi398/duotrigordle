@@ -29,15 +29,15 @@ export default function About() {
   return (
     <div className={cn("popup-wrapper", !shown && "hidden")}>
       <div className="popup">
-        <p>Guess all 32 Duotrigordle words in 37 tries!</p>
+        <p>Devinez les 32 mots en 37 essais !</p>
         <p>
-          A new Daily Duotrigordle will be available in {hoursRemaining} hour
+          Un nouveau essaie journalier sera disponible dans {hoursRemaining} heure
           {hoursRemaining === "1" ? "" : "s"}.
         </p>
         <hr className="separator" />
-        <p>Duotrigordle by Bryan Chen</p>
+        <p>Beaucoup trop de mots par Archibald Sabatier</p>
         <p>
-          Source code on{" "}
+          Basée sur le code de Duotrigordle : {" "}
           <a
             rel="noreferrer"
             target="_blank"
