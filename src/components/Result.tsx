@@ -37,15 +37,15 @@ export default function Result(props: ResultProps) {
   const handleCopyToClipboardClick = () => {
     navigator.clipboard
       .writeText(shareableText)
-      .then(() => alert("Copied results to clipboard!"))
-      .catch(() => alert("There was an error copying text to the clipboard"));
+      .then(() => alert("Copie des résultats dans le presse-papiers !"))
+      .catch(() => alert("Une erreur s'est produite lors de la copie du texte dans le presse-papiers."));
   };
 
   return (
     <div className={cn("result", props.hidden && "hidden")}>
       <div className="share">
         <pre className="text" dangerouslySetInnerHTML={{ __html: parsed }} />
-        <button onClick={handleCopyToClipboardClick}>copy to clipboard</button>
+        <button onClick={handleCopyToClipboardClick}>copier dans le presse-papiers</button>
       </div>
       <div className="words">
         {targets.map((target, i) => (
@@ -88,7 +88,7 @@ function getShareableText(
   if (practice) {
     text.push(`Practice Duotrigordle\n`);
   } else {
-    text.push(`Daily Duotrigordle #${id}\n`);
+    text.push(`Daily Beaucoup trop de mots #${id}\n`);
   }
   text.push(`Guesses: ${guessCount ?? "X"}/${NUM_GUESSES}\n`);
   if (timeElapsed !== null) {
@@ -115,6 +115,6 @@ function getShareableText(
 
     text.push(row.join(" ") + "\n");
   }
-  text.push("https://duotrigordle.com/");
+  text.push("https://duotrigordle.vercel.app/");
   return text.join("");
 }
