@@ -1,6 +1,14 @@
-export const NUM_BOARDS = 32;
+let let_num_boards = '32';
+if (localStorage.getItem('NUM_BOARDS')){
+  let_num_boards = localStorage.getItem('NUM_BOARDS') as string;
+}else{
+  localStorage.setItem('NUM_BOARDS', '32');
+  let_num_boards = localStorage.getItem('NUM_BOARDS') as string;
+}
 
-export const NUM_GUESSES = 37;
+export const NUM_BOARDS = parseInt(let_num_boards);
+
+export const NUM_GUESSES = NUM_BOARDS + 5;
 
 export const START_DATE = (() => {
   // Use this method so that the start date is offset by current timezone offset

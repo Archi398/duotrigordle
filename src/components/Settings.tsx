@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import cn from "classnames";
 import { useDispatch } from "react-redux";
 import { hidePopups, updateSettings, useSelector } from "../store";
@@ -17,7 +18,16 @@ export function Settings() {
   function reset() {
     localStorage.clear(); 
     window.location.reload();
-  } 
+  }
+
+  const [nb_board, setNb_board] = React.useState('');
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    let val = (document.getElementById('nb-board') as HTMLInputElement).value;
+    localStorage.setItem('NUM_BOARDS', val);
+    window.location.reload();
+  }
+
 
   return (
     <div className={cn("popup-wrapper", !shown && "hidden")}>
@@ -97,7 +107,18 @@ export function Settings() {
           />
           <label htmlFor="hide-keyboard">Cacher le clavier</label>
         </div>
-        <button className="reset" onClick={() => reset()}>
+        <div className="group">
+          <hr/>
+          <form id="form-nb-board" onSubmit={handleSubmit}>
+            <label className="item-form-nb-board">
+              Choisissez votre nombre de planches :
+            </label>
+            <input className="item-form-nb-board" type="number" id="nb-board" min={1} max={99} value={nb_board} onChange={(e) => setNb_board(e.target.value)}/>
+            <input className="item-form-nb-board" type="submit" value="Submit" />
+          </form>
+          <hr/>
+        </div>
+        <button className="reset" onClick={reset}>
           Réinitialisation complète
         </button>
         <button className="close" onClick={() => dispatch(hidePopups())}>

@@ -301,6 +301,17 @@ button {
 .separator {
   width: 100%;
 }
+#form-nb-board{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.item-form-nb-board{
+  margin: 5px 0;
+}
+#nb-board{
+  width: 70px;
+}
 .close {
   margin-top: calc(var(--app-width) / 30);
 }

@@ -100,7 +100,7 @@ function getShareableText(
     const row = [];
     for (let j = 0; j < cols; j++) {
       const idx = i * cols + j;
-      if (idx > NUM_BOARDS) continue;
+      if (idx > NUM_BOARDS - 1) continue;
       const guessCount = targetGuessCounts[idx];
       if (guessCount === null) {
         row.push("🟥🟥");
