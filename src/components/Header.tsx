@@ -87,7 +87,7 @@ export default function Header() {
   const handleNewClick = () => {
     newRef.current?.blur();
     const res = window.confirm(
-      "Are you sure you want to start a new practice duotrigordle?\n" +
+      "Are you sure you want to start a new practice ?\n" +
         "(Your current progress will be lost)"
     );
     if (!res) return;

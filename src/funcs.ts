@@ -86,14 +86,14 @@ export function formatTimeElapsed(miliseconds: number) {
   );
 }
 
-// Returns the id for today's duotrigordle
+// Returns the id for today's word
 export function getTodaysId(): number {
   const today = new Date();
   const diff = today.getTime() - START_DATE.getTime();
   return Math.ceil(diff / 1000 / 60 / 60 / 24);
 }
 
-// Given a duotrigordle id, return the corresponding 32 target wordles
+// Given a word id, return the corresponding 32 target wordles
 export function getTargetWords(id: number): string[] {
   const targetWords: string[] = [];
   const rng = MersenneTwister(id);
@@ -217,7 +217,7 @@ export function deserializeGame(serialized: GameSerialized): GameState {
 }
 export function loadGameFromLocalStorage(dispatch: Dispatch) {
   const todaysId = getTodaysId();
-  const text = localStorage.getItem("duotrigordle-state");
+  const text = localStorage.getItem("btdm-state");
   const serialized = text && JSON.parse(text);
   if (isGameSerialized(serialized) && serialized.id === todaysId) {
     dispatch(loadGame({ game: deserializeGame(serialized) }));
@@ -227,19 +227,19 @@ export function loadGameFromLocalStorage(dispatch: Dispatch) {
 }
 export function saveGameToLocalStorage(state: GameState) {
   localStorage.setItem(
-    "duotrigordle-state",
+    "btdm-state",
     JSON.stringify(serializeGame(state))
   );
 }
 
 // Serialization for settings
 export function loadSettingsFromLocalStorage(dispatch: Dispatch) {
-  const text = localStorage.getItem("duotrigordle-settings");
+  const text = localStorage.getItem("btdm-settings");
   const settings = text && JSON.parse(text);
   if (settings) {
     dispatch(updateSettings(settings));
   }
 }
 export function saveSettingsToLocalStorage(state: SettingsState) {
-  localStorage.setItem("duotrigordle-settings", JSON.stringify(state));
+  localStorage.setItem("btdm-settings", JSON.stringify(state));
 }

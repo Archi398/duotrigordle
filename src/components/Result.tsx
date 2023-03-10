@@ -52,14 +52,6 @@ export default function Result(props: ResultProps) {
           <p key={i}>{target}</p>
         ))}
       </div>
-      <div className="kofi">
-        <span dangerouslySetInnerHTML={{ __html: twemoji.parse("💛") }} />{" "}
-        Duotrigordle?{" "}
-        <a target="_blank" href="https://ko-fi.com/H2H0BTKB3">
-          Buy me a{" "}
-          <span dangerouslySetInnerHTML={{ __html: twemoji.parse("☕️") }} /> !
-        </a>
-      </div>
     </div>
   );
 }
@@ -86,7 +78,7 @@ function getShareableText(
 ) {
   const text = [];
   if (practice) {
-    text.push(`Practice Duotrigordle\n`);
+    text.push(`Practice\n`);
   } else {
     text.push(`Daily Beaucoup trop de mots #${id}\n`);
   }
@@ -115,6 +107,5 @@ function getShareableText(
 
     text.push(row.join(" ") + "\n");
   }
-  text.push("https://duotrigordle.vercel.app/");
   return text.join("");
 }

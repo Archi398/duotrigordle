@@ -37,7 +37,7 @@ export default function About() {
         <hr className="separator" />
         <p>Beaucoup trop de mots par Archibald Sabatier</p>
         <p>
-          Basée sur le code de Duotrigordle : {" "}
+          Basée sur l'idée de Duotrigordle : {" "}
           <a
             rel="noreferrer"
             target="_blank"
